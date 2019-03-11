@@ -19,10 +19,13 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
+        //ActivityModifier.updateActivity(this);
         setContentView(R.layout.activity_main);
 
         myDataset = new ArrayList<>();
 
+        Controller controller = new Controller();
+        controller.start(this);
 
         mRecyclerView = findViewById(R.id.recyclerView);
 
@@ -47,6 +50,10 @@ public class MainActivity extends AppCompatActivity {
         // define an adapter
         mAdapter = new MyAdapter(this, myDataset);
         mRecyclerView.setAdapter(mAdapter);
+    }
+
+    public void setMyDataset(ArrayList<Cat> myDataset){
+        this.myDataset = myDataset;
     }
 }
 

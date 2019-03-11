@@ -6,29 +6,17 @@
     android:layout_width="match_parent"
     android:layout_height="100dp"
     android:orientation="vertical">
-    <!--
-    items for a single row of RecyclerView
-    -->
+
     <TextView
-        android:id="@+id/name_cat"
-        android:layout_width="match_parent"
+        android:id="@+id/textView"
+        android:layout_width="305dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="100dp"
-        android:layout_marginBottom="age_cat"
-        android:textColor="#000"
-        android:textSize="20sp" />
+        android:layout_marginStart="105dp"
+        android:text="TextView" />
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="96dp"
-        android:layout_height="39dp"
-        app:srcCompat="?attr/actionModeSplitBackground" />
-
-    <TextView
-        android:id="@+id/age_cat"
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:layout_marginStart="100dp"
-        android:text="@string/age_cat" />
-
+        android:layout_width="105dp"
+        android:layout_height="100dp"
+        tools:srcCompat="@tools:sample/avatars" />
 </LinearLayout>

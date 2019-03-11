@@ -1,5 +1,9 @@
 package com.example.project_guillemaut;
 
+import android.app.Activity;
+
+import java.lang.ref.WeakReference;
+import java.util.ArrayList;
 import java.util.List;
 
 import com.google.gson.Gson;
@@ -11,11 +15,15 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
+import static java.security.AccessController.getContext;
+
 public class Controller implements Callback<List<Cat>> {
 
-    static final String BASE_URL = "https://git.eclipse.org/r/";
+    static final String BASE_URL = "https://catAPI/";
+    static MainActivity mActivity;
 
-    public void start() {
+    public void start(MainActivity myActivity) {
+        mActivity = myActivity;
         Gson gson = new GsonBuilder()
                 .setLenient()
                 .create();
@@ -36,7 +44,7 @@ public class Controller implements Callback<List<Cat>> {
     public void onResponse(Call<List<Cat>> call, Response<List<Cat>> response) {
         if(response.isSuccessful()) {
             List<Cat> changesList = response.body();
-            changesList.forEach(change -> System.out.println(change.subject));
+            mActivity.setMyDataset((ArrayList<Cat>) changesList);
         } else {
             System.out.println(response.errorBody());
         }
@@ -46,4 +54,6 @@ public class Controller implements Callback<List<Cat>> {
     public void onFailure(Call<List<Cat>> call, Throwable t) {
         t.printStackTrace();
     }
+
 }
+
