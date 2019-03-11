@@ -1,6 +1,8 @@
 package com.example.project_guillemaut;
 
 import android.app.Activity;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
@@ -21,6 +23,9 @@ public class Controller implements Callback<List<Cat>> {
 
     static final String BASE_URL = "https://catAPI/";
     static MainActivity mActivity;
+    private RecyclerView mRecyclerView;
+    private RecyclerView.Adapter mAdapter;
+    private RecyclerView.LayoutManager mLayoutManager;
 
     public void start(MainActivity myActivity) {
         mActivity = myActivity;
@@ -48,12 +53,14 @@ public class Controller implements Callback<List<Cat>> {
         } else {
             System.out.println(response.errorBody());
         }
+        mActivity.showList();
     }
 
     @Override
     public void onFailure(Call<List<Cat>> call, Throwable t) {
         t.printStackTrace();
     }
+
 
 }
 

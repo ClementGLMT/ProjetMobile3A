@@ -2,116 +2,116 @@ package com.example.project_guillemaut;
 
 public class Cat {
 
-    private String catPic;
-    private String catName;
-    private String catAge;
-    private String catMood;
-    private String catColor;
-    private String catNum;
-    private String catHeight;
-    private String catCoat;
+    private String cat_pic;
+    private String cat_name;
+    private String cat_age;
+    private String cat_mood;
+    private String cat_color;
+    private String cat_num;
+    private String cat_height;
+    private String cat_coat;
 
     public String getCatPic() {
-        return catPic;
+        return cat_pic;
     }
 
-    public void setCatPic(String catPic) {
-        this.catPic = catPic;
+    public void setCatPic(String cat_pic) {
+        this.cat_pic = cat_pic;
     }
 
-    public Cat withCatPic(String catPic) {
-        this.catPic = catPic;
+    public Cat withCatPic(String cat_pic) {
+        this.cat_pic = cat_pic;
         return this;
     }
 
     public String getCatName() {
-        return catName;
+        return cat_name;
     }
 
-    public void setCatName(String catName) {
-        this.catName = catName;
+    public void setCatName(String cat_name) {
+        this.cat_name = cat_name;
     }
 
-    public Cat withCatName(String catName) {
-        this.catName = catName;
+    public Cat withCatName(String cat_name) {
+        this.cat_name = cat_name;
         return this;
     }
 
     public String getCatAge() {
-        return catAge;
+        return cat_age;
     }
 
-    public void setCatAge(String catAge) {
-        this.catAge = catAge;
+    public void setCatAge(String cat_age) {
+        this.cat_age = cat_age;
     }
 
-    public Cat withCatAge(String catAge) {
-        this.catAge = catAge;
+    public Cat withCatAge(String cat_age) {
+        this.cat_age = cat_age;
         return this;
     }
 
     public String getCatMood() {
-        return catMood;
+        return cat_mood;
     }
 
-    public void setCatMood(String catMood) {
-        this.catMood = catMood;
+    public void setCatMood(String cat_mood) {
+        this.cat_mood = cat_mood;
     }
 
-    public Cat withCatMood(String catMood) {
-        this.catMood = catMood;
+    public Cat withCatMood(String cat_mood) {
+        this.cat_mood = cat_mood;
         return this;
     }
 
     public String getCatColor() {
-        return catColor;
+        return cat_color;
     }
 
-    public void setCatColor(String catColor) {
-        this.catColor = catColor;
+    public void setCatColor(String cat_color) {
+        this.cat_color = cat_color;
     }
 
-    public Cat withCatColor(String catColor) {
-        this.catColor = catColor;
+    public Cat withCatColor(String cat_color) {
+        this.cat_color = cat_color;
         return this;
     }
 
     public String getCatNum() {
-        return catNum;
+        return cat_num;
     }
 
-    public void setCatNum(String catNum) {
-        this.catNum = catNum;
+    public void setCatNum(String cat_num) {
+        this.cat_num = cat_num;
     }
 
-    public Cat withCatNum(String catNum) {
-        this.catNum = catNum;
+    public Cat withCatNum(String cat_num) {
+        this.cat_num = cat_num;
         return this;
     }
 
     public String getCatHeight() {
-        return catHeight;
+        return cat_height;
     }
 
-    public void setCatHeight(String catHeight) {
-        this.catHeight = catHeight;
+    public void setCatHeight(String cat_height) {
+        this.cat_height = cat_height;
     }
 
-    public Cat withCatHeight(String catHeight) {
-        this.catHeight = catHeight;
+    public Cat withCatHeight(String cat_height) {
+        this.cat_height = cat_height;
         return this;
     }
 
     public String getCatCoat() {
-        return catCoat;
+        return cat_coat;
     }
 
-    public void setCatCoat(String catCoat) {
-        this.catCoat = catCoat;
+    public void setCatCoat(String cat_coat) {
+        this.cat_coat = cat_coat;
     }
 
-    public Cat withCatCoat(String catCoat) {
-        this.catCoat = catCoat;
+    public Cat withCatCoat(String cat_coat) {
+        this.cat_coat = cat_coat;
         return this;
     }
 }

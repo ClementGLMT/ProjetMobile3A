@@ -8,6 +8,6 @@ import retrofit2.http.Query;
 
 public interface CatAPI {
 
-    @GET("changes/")
+    @GET("catAPI.json/")
     Call<List<Cat>> loadChanges(@Query("q") String status);
 }
