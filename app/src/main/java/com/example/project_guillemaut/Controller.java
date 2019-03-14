@@ -3,6 +3,7 @@ package com.example.project_guillemaut;
 import android.app.Activity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
@@ -21,7 +22,7 @@ import static java.security.AccessController.getContext;
 
 public class Controller implements Callback<List<Cat>> {
 
-    static final String BASE_URL = "https://catAPI/";
+    static final String BASE_URL = "https://clementguillemaut.github.io/";
     static MainActivity mActivity;
     private RecyclerView mRecyclerView;
     private RecyclerView.Adapter mAdapter;
@@ -42,18 +43,21 @@ public class Controller implements Callback<List<Cat>> {
 
         Call<List<Cat>> call = catAPI.loadChanges("status:open");
         call.enqueue(this);
+        Log.i("start", "call passed");
 
     }
 
     @Override
     public void onResponse(Call<List<Cat>> call, Response<List<Cat>> response) {
+        Log.i("onResponse", "Is in onResponse");
         if(response.isSuccessful()) {
             List<Cat> changesList = response.body();
             mActivity.setMyDataset((ArrayList<Cat>) changesList);
+            Log.i("onResponse", "Response is successful and dataset loaded");
         } else {
-            System.out.println(response.errorBody());
+            Log.i("onResponse", "Response is not successful :"+response.errorBody());
         }
-        mActivity.showList();
+        mActivity.showList(mActivity.getMyDataset());
     }
 
     @Override

@@ -4,6 +4,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -28,19 +29,35 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         myDataset = new ArrayList<>();
+        /*myDataset.add(new Cat("h","h","h","h","h","h","h","h"));
+        myDataset.add(new Cat("i","i","i","h","h","h","h","h"));
+        myDataset.add(new Cat("h","u","u","h","h","h","h","h"));*/
+
 
         Controller controller = new Controller();
         controller.start(this);
 
         mRecyclerView = findViewById(R.id.recyclerView);
 
-    }
-
-    public void showList(List<Cat> listBook, ArrayList<Cat> dataset) {
         mRecyclerView.setHasFixedSize(true);
         // use a linear layout manager
         mLayoutManager = new LinearLayoutManager(this);
         mRecyclerView.setLayoutManager(mLayoutManager);
+        mAdapter = new MyAdapter(this, myDataset);
+        mRecyclerView.setAdapter(mAdapter);
+
+    }
+
+    public void showList(ArrayList<Cat> dataset) {
+
+        Log.i("showList", "Is in showList");
+        int i=0;
+        for (Cat cat: dataset)
+              {
+            Log.i("Cat", cat.getCatName());
+            i++;
+        }
+        Log.i("Cat", ""+i);
         // define an adapter
         mAdapter = new MyAdapter(this, dataset);
         mRecyclerView.setAdapter(mAdapter);

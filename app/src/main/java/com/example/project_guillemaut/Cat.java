@@ -11,6 +11,18 @@ public class Cat {
     private String cat_height;
     private String cat_coat;
 
+    public Cat(String cat_pic, String cat_name, String cat_age, String cat_mood, String cat_color, String cat_num, String cat_height, String cat_coat){
+        this.cat_age = cat_age;
+        this.cat_coat = cat_coat;
+        this.cat_color = cat_color;
+        this.cat_height = cat_height;
+        this.cat_mood = cat_mood;
+        this.cat_name = cat_name;
+        this.cat_num = cat_num;
+        this.cat_pic = cat_pic;
+
+    }
+
     public String getCatPic() {
         return cat_pic;
     }
