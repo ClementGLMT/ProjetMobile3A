@@ -20,13 +20,10 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 import static java.security.AccessController.getContext;
 
-public class Controller implements Callback<List<Cat>> {
+public class Controller  {
 
     static final String BASE_URL = "https://clementguillemaut.github.io/";
     static MainActivity mActivity;
-    private RecyclerView mRecyclerView;
-    private RecyclerView.Adapter mAdapter;
-    private RecyclerView.LayoutManager mLayoutManager;
 
     public void start(MainActivity myActivity) {
         mActivity = myActivity;
@@ -41,30 +38,36 @@ public class Controller implements Callback<List<Cat>> {
 
         CatAPI catAPI = retrofit.create(CatAPI.class);
 
-        Call<List<Cat>> call = catAPI.loadChanges("status:open");
-        call.enqueue(this);
+        Call<ApiCatResponse> call = catAPI.loadChanges();
+
+        call.enqueue(new Callback<ApiCatResponse>() {
+            @Override
+            public void onResponse(Call<ApiCatResponse> call, Response<ApiCatResponse> response) {
+                Log.i("onResponse", "Is in onResponse");
+                Log.i("Response", "Response status : "+response.code());
+
+                if(response.isSuccessful()) {
+                    Log.i("Response", "Response status : "+response.message());
+                    ApiCatResponse changesList = response.body();
+                    mActivity.setMyDataset((ArrayList<Cat>) changesList.getResults());
+                    Log.i("onResponse", "Response is successful and dataset loaded");
+                    mActivity.showList((ArrayList<Cat>) changesList.getResults());
+
+                } else {
+                    Log.i("onResponse", "Response is not successful :"+response.errorBody());
+                    Log.i("Response", "Response status : "+response.message());
+
+                }
+            }
+
+            @Override
+            public void onFailure(Call<ApiCatResponse> call, Throwable t) {
+                t.printStackTrace();
+            }
+        });
         Log.i("start", "call passed");
 
     }
-
-    @Override
-    public void onResponse(Call<List<Cat>> call, Response<List<Cat>> response) {
-        Log.i("onResponse", "Is in onResponse");
-        if(response.isSuccessful()) {
-            List<Cat> changesList = response.body();
-            mActivity.setMyDataset((ArrayList<Cat>) changesList);
-            Log.i("onResponse", "Response is successful and dataset loaded");
-        } else {
-            Log.i("onResponse", "Response is not successful :"+response.errorBody());
-        }
-        mActivity.showList(mActivity.getMyDataset());
-    }
-
-    @Override
-    public void onFailure(Call<List<Cat>> call, Throwable t) {
-        t.printStackTrace();
-    }
-
 
 }
 
