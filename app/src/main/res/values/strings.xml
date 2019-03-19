@@ -3,4 +3,5 @@
     <string name="age_cat">0</string>
     <string name="cat_age">TextView</string>
     <string name="cat_name">TextView</string>
+    <string name="go_to_profile">Go to profile</string>
 </resources>

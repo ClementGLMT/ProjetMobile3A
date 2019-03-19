@@ -1,10 +1,13 @@
 package com.example.project_guillemaut;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+import android.view.View;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -14,6 +17,9 @@ public class MainActivity extends AppCompatActivity {
     private RecyclerView.Adapter mAdapter;
     private RecyclerView.LayoutManager mLayoutManager;
     private ArrayList<Cat> myDataset;
+    private ClickListener listener;
+
+    private static final Cat CAT_TO_SHOW = new Cat(null, null, null, null, null, null, null, null);
 
 
     public ArrayList<Cat> getMyDataset(){
@@ -29,10 +35,6 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         myDataset = new ArrayList<>();
-        /*myDataset.add(new Cat("h","h","h","h","h","h","h","h"));
-        myDataset.add(new Cat("i","i","i","h","h","h","h","h"));
-        myDataset.add(new Cat("h","u","u","h","h","h","h","h"));*/
-
 
         Controller controller = new Controller();
         controller.start(this);
@@ -43,7 +45,7 @@ public class MainActivity extends AppCompatActivity {
         // use a linear layout manager
         mLayoutManager = new LinearLayoutManager(this);
         mRecyclerView.setLayoutManager(mLayoutManager);
-        mAdapter = new MyAdapter(this, myDataset);
+        mAdapter = new MyAdapter(this, myDataset, listener);
         mRecyclerView.setAdapter(mAdapter);
 
     }
@@ -59,9 +61,20 @@ public class MainActivity extends AppCompatActivity {
         }
         Log.i("Cat", ""+i);
         // define an adapter
-        mAdapter = new MyAdapter(this, dataset);
+        mAdapter = new MyAdapter(this, dataset, listener );
         mRecyclerView.setAdapter(mAdapter);
     }
+
+   /* public void toSecondActivity(View view) {
+        // Create an Intent to start the second activity
+        Intent intent = new Intent(this, SecondActivity.class);
+
+        intent.putExtra("MyClass", obj);;
+        startActivity(randomIntent);
+
+
+
+    }*/
 
 
 

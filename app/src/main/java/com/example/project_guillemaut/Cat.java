@@ -1,6 +1,8 @@
 package com.example.project_guillemaut;
 
-public class Cat {
+import java.io.Serializable;
+
+public class Cat implements Serializable {
 
     private String cat_pic;
     private String cat_name;
