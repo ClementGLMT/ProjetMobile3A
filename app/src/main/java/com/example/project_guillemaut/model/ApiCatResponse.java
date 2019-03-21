@@ -1,4 +1,4 @@
-package com.example.project_guillemaut;
+package com.example.project_guillemaut.model;
 
 import java.util.List;
 

@@ -1,10 +1,9 @@
-package com.example.project_guillemaut;
+package com.example.project_guillemaut.controller;
 
-import java.util.List;
+import com.example.project_guillemaut.model.ApiCatResponse;
 
 import retrofit2.Call;
 import retrofit2.http.GET;
-import retrofit2.http.Query;
 
 public interface CatAPI {
 

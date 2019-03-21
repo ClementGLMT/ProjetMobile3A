@@ -1,16 +1,19 @@
-package com.example.project_guillemaut;
+package com.example.project_guillemaut.view;
 
-import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
-import android.view.View;
-import android.widget.TextView;
+
+import com.example.project_guillemaut.controller.ClickListener;
+import com.example.project_guillemaut.R;
+import com.example.project_guillemaut.controller.Controller;
+import com.example.project_guillemaut.model.Cat;
 
 import java.util.ArrayList;
-import java.util.List;
+import java.util.Map;
 
 public class MainActivity extends AppCompatActivity {
     private RecyclerView mRecyclerView;
@@ -37,6 +40,7 @@ public class MainActivity extends AppCompatActivity {
         myDataset = new ArrayList<>();
 
         Controller controller = new Controller();
+        showCache();
         controller.start(this);
 
         mRecyclerView = findViewById(R.id.recyclerView);
@@ -47,7 +51,6 @@ public class MainActivity extends AppCompatActivity {
         mRecyclerView.setLayoutManager(mLayoutManager);
         mAdapter = new MyAdapter(this, myDataset, listener);
         mRecyclerView.setAdapter(mAdapter);
-
     }
 
     public void showList(ArrayList<Cat> dataset) {
@@ -65,18 +68,30 @@ public class MainActivity extends AppCompatActivity {
         mRecyclerView.setAdapter(mAdapter);
     }
 
-   /* public void toSecondActivity(View view) {
-        // Create an Intent to start the second activity
-        Intent intent = new Intent(this, SecondActivity.class);
 
-        intent.putExtra("MyClass", obj);;
-        startActivity(randomIntent);
+    public void showCache(){
+        int i;
+        SharedPreferences cache = getPreferences(MODE_PRIVATE);
+        Map kache = cache.getAll();
+        Log.d("Cache", "cache size = "+kache.size());
 
+        if(kache.isEmpty()){
+            Log.d("Cache", "Cache empty");
+        }
+        else {
+            for(i=1; i<=kache.size()/8; i++){
+                Log.d("Cache", (String) kache.get("Cat_"+i+"_name="));
+                Log.d("Cache", (String) kache.get("Cat_"+i+"_age="));
+                Log.d("Cache", (String) kache.get("Cat_"+i+"_coat="));
+                Log.d("Cache", (String) kache.get("Cat_"+i+"_color="));
+                Log.d("Cache", (String) kache.get("Cat_"+i+"_height="));
+                Log.d("Cache", (String) kache.get("Cat_"+i+"_mood="));
+                Log.d("Cache", (String) kache.get("Cat_"+i+"_num="));
+                Log.d("Cache", (String) kache.get("Cat_"+i+"_pic="));
 
-
-    }*/
-
-
+            }
+        }
+    }
 
     public void setMyDataset(ArrayList<Cat> myDataset){
         this.myDataset = myDataset;

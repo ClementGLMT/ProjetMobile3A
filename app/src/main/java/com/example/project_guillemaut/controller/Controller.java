@@ -1,14 +1,13 @@
-package com.example.project_guillemaut;
+package com.example.project_guillemaut.controller;
 
-import android.app.Activity;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
+import android.content.SharedPreferences;
 import android.util.Log;
 
-import java.lang.ref.WeakReference;
 import java.util.ArrayList;
-import java.util.List;
 
+import com.example.project_guillemaut.model.ApiCatResponse;
+import com.example.project_guillemaut.model.Cat;
+import com.example.project_guillemaut.view.MainActivity;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
@@ -18,7 +17,7 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-import static java.security.AccessController.getContext;
+import static android.content.Context.MODE_PRIVATE;
 
 public class Controller  {
 
@@ -50,14 +49,39 @@ public class Controller  {
                     Log.i("Response", "Response status : "+response.message());
                     ApiCatResponse changesList = response.body();
                     mActivity.setMyDataset((ArrayList<Cat>) changesList.getResults());
+                    storeDatasetInCache();
                     Log.i("onResponse", "Response is successful and dataset loaded");
                     mActivity.showList((ArrayList<Cat>) changesList.getResults());
-
                 } else {
                     Log.i("onResponse", "Response is not successful :"+response.errorBody());
                     Log.i("Response", "Response status : "+response.message());
 
                 }
+            }
+
+            public void showCache(){
+
+            }
+
+            private void storeDatasetInCache(){
+                SharedPreferences cache = mActivity.getPreferences(MODE_PRIVATE);
+                SharedPreferences.Editor editor = cache.edit();
+                int i=1;
+
+                for (Cat cat : mActivity.getMyDataset()){
+
+                    editor.putString("Cat_"+i+"_name=", cat.getCatName());
+                    editor.putString("Cat_"+i+"_age=", cat.getCatAge());
+                    editor.putString("Cat_"+i+"_coat=", cat.getCatCoat());
+                    editor.putString("Cat_"+i+"_color=", cat.getCatColor());
+                    editor.putString("Cat_"+i+"_height=", cat.getCatHeight());
+                    editor.putString("Cat_"+i+"_mood=", cat.getCatMood());
+                    editor.putString("Cat_"+i+"_num=", cat.getCatNum());
+                    editor.putString("Cat_"+i+"_pic=", cat.getCatPic());
+                    i++;
+                }
+                editor.apply();
+
             }
 
             @Override

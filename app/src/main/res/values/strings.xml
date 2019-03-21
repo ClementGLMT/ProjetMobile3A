@@ -1,7 +1,18 @@
 <resources>
-    <string name="app_name">Project_Guillemaut</string>
+    <string name="app_name">LES CHATS</string>
     <string name="age_cat">0</string>
-    <string name="cat_age">TextView</string>
-    <string name="cat_name">TextView</string>
-    <string name="go_to_profile">Go to profile</string>
+    <string name="cat_age">Cat Age</string>
+    <string name="cat_name">Cat Name</string>
+    <string name="age">Age :\u0020</string>
+    <string name="caractere">Caractère :\u0020</string>
+    <string name="pelage">Pelage :\u0020</string>
+    <string name="taille">Taille :\u0020</string>
+    <string name="cm">cm</string>
+    <string name="tel">Tel :\u0020</string>
+    <string name="couleur">Couleur :\u0020</string>
+
+
+
+
+
 </resources>

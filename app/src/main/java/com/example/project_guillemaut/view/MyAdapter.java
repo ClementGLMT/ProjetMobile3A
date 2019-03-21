@@ -1,10 +1,8 @@
-package com.example.project_guillemaut;
+package com.example.project_guillemaut.view;
 
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -15,11 +13,10 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.project_guillemaut.R;
+import com.example.project_guillemaut.controller.ClickListener;
+import com.example.project_guillemaut.model.Cat;
 import com.squareup.picasso.Picasso;
 
-import java.io.IOException;
-import java.net.MalformedURLException;
-import java.net.URL;
 import java.util.ArrayList;
 
 import static android.support.v4.content.ContextCompat.startActivity;
