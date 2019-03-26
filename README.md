@@ -61,7 +61,7 @@ Voici le format d'une réponse de la catAPI (seulement 2 chats à titre d'exempl
 
 Liste des chats : 
 
-<img src="https://image.noelshack.com/fichiers/2019/13/2/1553617661-55529868-261977718017237-3811347042098216960-n.jpg" alt="act1" width="200" height="422>
+<img src="https://image.noelshack.com/fichiers/2019/13/2/1553617661-55529868-261977718017237-3811347042098216960-n.jpg" alt="act1" width="200" height="422">
 
 ### 2ème activity :  
 
