@@ -65,7 +65,7 @@ Liste des chats :
 
 ### 2ème activity :  
 
-- Détail du chat : 
+Détail du chat : 
 
 <img src="https://image.noelshack.com/fichiers/2019/13/2/1553617916-54798082-378998912687342-7830373499762900992-n.jpg" alt="act2" width="300" height="633">
 
