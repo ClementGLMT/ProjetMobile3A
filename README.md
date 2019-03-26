@@ -1,10 +1,12 @@
 # **LES CHATS**
 
+
 ## Présentation
 
 Ce projet est un exemple d'utilisation d'une Recycler Viewt. Les données chargées à l'intérieur de cette liste sont chargées depuis une API (utilisation de Retrofit) et sont stockées en cache (utilisation de SharedPreferences). Une architecture MVM a été adoptée et des transitions ont été mises en place entre les écrans (utilisation d'Animatoo).
 
 Cette application affiche la liste de chats présente sur l'API créée par mes soins (chats existants et fictifs : https://clementguillemaut.github.io/cat.json )
+
 
 ## Prérequis
 
@@ -15,6 +17,7 @@ Cette application affiche la liste de chats présente sur l'API créée par mes 
 
 ## Consignes respectées : 
 
+
 - Architecture MVC
 - Appels REST
 - Ecrans : 2 activities
@@ -24,9 +27,12 @@ Cette application affiche la liste de chats présente sur l'API créée par mes 
 - Stockage des données en cache (SharedPreferences)
 - Animations (Animatoo)
 
+
 ### Présentation de l'API réalisée :
 
+
 Voici le format d'une réponse de la catAPI (seulement 2 chats à titre d'exemple) : 
+
 
 ```bash
 {
@@ -55,17 +61,24 @@ Voici le format d'une réponse de la catAPI (seulement 2 chats à titre d'exempl
 }
 ```
 
+
 ## Fonctionnalités: 
+
 
 ### 1ère activity : 
 
+
 Liste des chats : 
+
 
 <img src="https://image.noelshack.com/fichiers/2019/13/2/1553617661-55529868-261977718017237-3811347042098216960-n.jpg" alt="act1" width="300" height="633">
 
+
 ### 2ème activity :  
 
+
 Détail du chat : 
+
 
 <img src="https://image.noelshack.com/fichiers/2019/13/2/1553617916-54798082-378998912687342-7830373499762900992-n.jpg" alt="act2" width="300" height="633">
 
