@@ -25,14 +25,13 @@ import static android.support.v4.content.ContextCompat.startActivity;
 public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
     private ArrayList<Cat> mDataset;
     private final ClickListener listener;
-    Activity activity;
 
-    Context context;
+    private Context context;
 
     // Provide a reference to the views for each data item
     // Complex data items may need more than one view per item, and
     // you provide access to all the views for a data item in a view holder
-    public static class MyViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
+    public static class MyViewHolder extends RecyclerView.ViewHolder {
         // each data item is just a string in this case
         private Cat mItem;
         Context context;
@@ -42,7 +41,6 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
 
         public MyViewHolder(View v, Context context) {
             super(v);
-            v.setOnClickListener(this);
             this.context = context;
             cat_age =  v.findViewById(R.id.catage);
             cat_name =  v.findViewById(R.id.catname);
@@ -57,23 +55,12 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
             Log.i("Loading", item.getCatName()+" loaded with pic : "+item.getCatPic());
             mItem = item;
         }
-
-        @Override
-        public void onClick(View view) {
-            Log.d("Button", "onClick " + getAdapterPosition() + " " + mItem.getCatName());
-            Intent intent = new Intent(context, SecondActivity.class);
-            intent.putExtra("Cat", mItem);
-            startActivity(context, intent, Bundle.EMPTY);
-            Animatoo.animateInAndOut(context);
-
-        }
     }
 
     // Provide a suitable constructor (depends on the kind of dataset)
     public MyAdapter(Context context, ArrayList<Cat> myDataset, ClickListener listener) {
 
         this.context = context;
-        this.activity = activity;
         mDataset = myDataset;
         this.listener = listener;
     }
@@ -95,7 +82,14 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
     public void onBindViewHolder(MyViewHolder holder, int position) {
         // - get element from your dataset at this position
         // - replace the contents of the view with that element
-        holder.setItem(mDataset.get(position));
+        final Cat chat = mDataset.get(position);
+        holder.setItem(chat);
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                listener.onItemClick(chat);
+            }
+        });
 
     }
 

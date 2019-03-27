@@ -20,6 +20,7 @@
         android:textSize="18sp"
         app:layout_constraintBottom_toTopOf="@+id/catage"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.67"
         app:layout_constraintStart_toEndOf="@+id/catface"
         app:layout_constraintTop_toTopOf="parent"
         tools:text="@string/cat_name" />
@@ -36,6 +37,7 @@
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.64"
         app:layout_constraintStart_toEndOf="@+id/catface"
         app:layout_constraintTop_toBottomOf="@+id/catname"
         tools:text="@string/cat_age" />

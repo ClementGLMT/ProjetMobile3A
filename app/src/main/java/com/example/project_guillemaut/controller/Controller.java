@@ -24,9 +24,9 @@ import static android.content.Context.MODE_PRIVATE;
 
 public class Controller  {
 
-    static final String BASE_URL = "https://clementguillemaut.github.io/";
-    static MainActivity mActivity;
-    static RecyclerView.Adapter myAdapter;
+    private static final String BASE_URL = "https://clementguillemaut.github.io/";
+    private MainActivity mActivity;
+    private static RecyclerView.Adapter myAdapter;
 
     public void start(MainActivity myActivity, RecyclerView.Adapter mAdapter) {
         mActivity = myActivity;
