@@ -39,10 +39,6 @@ public class MainActivity extends AppCompatActivity {
 
         myDataset = new ArrayList<>();
 
-        Controller controller = new Controller();
-        showCache();
-        controller.start(this);
-
         mRecyclerView = findViewById(R.id.recyclerView);
 
         mRecyclerView.setHasFixedSize(true);
@@ -50,6 +46,11 @@ public class MainActivity extends AppCompatActivity {
         mLayoutManager = new LinearLayoutManager(this);
         mRecyclerView.setLayoutManager(mLayoutManager);
         mAdapter = new MyAdapter(this, myDataset, listener);
+
+        Controller controller = new Controller();
+        showCache();
+        controller.start(this, mAdapter);
+
         mRecyclerView.setAdapter(mAdapter);
     }
 

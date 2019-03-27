@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.blogspot.atifsoftwares.animatoolib.Animatoo;
 import com.example.project_guillemaut.R;
 import com.example.project_guillemaut.model.Cat;
 import com.squareup.picasso.Picasso;
@@ -38,13 +39,11 @@ public class SecondActivity extends AppCompatActivity {
         catheight.setText(getResources().getString(R.string.taille)+catToShow.getCatHeight()+getResources().getString(R.string.cm));
         catnum.setText(getResources().getString(R.string.tel)+catToShow.getCatNum());
         catcolor.setText(getResources().getString(R.string.couleur)+catToShow.getCatColor());
+    }
 
-
-
-
-
-
-
-
+    @Override
+    public void onBackPressed(){
+        super.onBackPressed();
+        Animatoo.animateSlideRight(this); //fire the slide left animation
     }
 }

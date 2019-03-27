@@ -12,6 +12,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.blogspot.atifsoftwares.animatoolib.Animatoo;
 import com.example.project_guillemaut.R;
 import com.example.project_guillemaut.controller.ClickListener;
 import com.example.project_guillemaut.model.Cat;
@@ -63,6 +64,8 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
             Intent intent = new Intent(context, SecondActivity.class);
             intent.putExtra("Cat", mItem);
             startActivity(context, intent, Bundle.EMPTY);
+            Animatoo.animateInAndOut(context);
+
         }
     }
 
