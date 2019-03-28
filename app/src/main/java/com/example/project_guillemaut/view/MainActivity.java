@@ -9,6 +9,7 @@ import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 
 import com.blogspot.atifsoftwares.animatoolib.Animatoo;
+import com.example.project_guillemaut.CatAdapter;
 import com.example.project_guillemaut.controller.ClickListener;
 import com.example.project_guillemaut.R;
 import com.example.project_guillemaut.controller.Controller;
@@ -17,13 +18,13 @@ import com.example.project_guillemaut.model.Cat;
 import java.util.ArrayList;
 import java.util.Map;
 
-import static android.support.v4.content.ContextCompat.startActivity;
-
 public class MainActivity extends AppCompatActivity implements ClickListener{
     private RecyclerView mRecyclerView;
     private RecyclerView.Adapter mAdapter;
     private RecyclerView.LayoutManager mLayoutManager;
     private ArrayList<Cat> myDataset;
+    private Controller controller;
+
 
 
     public ArrayList<Cat> getMyDataset(){
@@ -37,7 +38,7 @@ public class MainActivity extends AppCompatActivity implements ClickListener{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         myDataset = new ArrayList<>();
-        Controller controller = new Controller();
+        controller = new Controller();
         showCache();
         controller.start(this, mAdapter);
     }
@@ -48,7 +49,7 @@ public class MainActivity extends AppCompatActivity implements ClickListener{
         mRecyclerView.setHasFixedSize(true);
         mLayoutManager = new LinearLayoutManager(this);
         mRecyclerView.setLayoutManager(mLayoutManager);
-        mAdapter = new MyAdapter(this, dataset, this );
+        mAdapter = new CatAdapter(this, dataset, this );
         mRecyclerView.setAdapter(mAdapter);
     }
 

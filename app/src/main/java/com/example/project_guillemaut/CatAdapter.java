@@ -1,9 +1,6 @@
-package com.example.project_guillemaut.view;
+package com.example.project_guillemaut;
 
-import android.app.Activity;
 import android.content.Context;
-import android.content.Intent;
-import android.os.Bundle;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -12,17 +9,13 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.blogspot.atifsoftwares.animatoolib.Animatoo;
-import com.example.project_guillemaut.R;
 import com.example.project_guillemaut.controller.ClickListener;
 import com.example.project_guillemaut.model.Cat;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
-import static android.support.v4.content.ContextCompat.startActivity;
-
-public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
+public class CatAdapter extends RecyclerView.Adapter<CatAdapter.MyViewHolder> {
     private ArrayList<Cat> mDataset;
     private final ClickListener listener;
 
@@ -58,7 +51,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
     }
 
     // Provide a suitable constructor (depends on the kind of dataset)
-    public MyAdapter(Context context, ArrayList<Cat> myDataset, ClickListener listener) {
+    public CatAdapter(Context context, ArrayList<Cat> myDataset, ClickListener listener) {
 
         this.context = context;
         mDataset = myDataset;
@@ -67,8 +60,8 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
 
     // Create new views (invoked by the layout manager)
     @Override
-    public MyAdapter.MyViewHolder onCreateViewHolder(ViewGroup parent,
-                                                     int viewType) {
+    public CatAdapter.MyViewHolder onCreateViewHolder(ViewGroup parent,
+                                                      int viewType) {
         // create a new view
         View v =  LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.row_layout2, parent, false);

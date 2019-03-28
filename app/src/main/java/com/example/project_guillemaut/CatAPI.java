@@ -1,4 +1,4 @@
-package com.example.project_guillemaut.controller;
+package com.example.project_guillemaut;
 
 import com.example.project_guillemaut.model.ApiCatResponse;
 

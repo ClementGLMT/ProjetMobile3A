@@ -3,14 +3,13 @@ package com.example.project_guillemaut.controller;
 import android.content.SharedPreferences;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
-import android.widget.Adapter;
 
 import java.util.ArrayList;
 
+import com.example.project_guillemaut.CatAPI;
 import com.example.project_guillemaut.model.ApiCatResponse;
 import com.example.project_guillemaut.model.Cat;
 import com.example.project_guillemaut.view.MainActivity;
-import com.example.project_guillemaut.view.MyAdapter;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
