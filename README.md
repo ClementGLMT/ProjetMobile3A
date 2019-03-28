@@ -3,9 +3,10 @@
 
 ## Présentation
 
-Ce projet est un exemple d'utilisation d'une Recycler Viewt. Les données chargées à l'intérieur de cette liste sont chargées depuis une API (utilisation de Retrofit) et sont stockées en cache (utilisation de SharedPreferences). Une architecture MVM a été adoptée et des transitions ont été mises en place entre les écrans (utilisation d'Animatoo).
+Ce projet est un exemple d'utilisation d'une Recycler View. Les données chargées à l'intérieur de cette liste sont chargées depuis une API (utilisation de Retrofit) et sont stockées en cache (utilisation de SharedPreferences). Une architecture MVM a été adoptée et des transitions ont été mises en place entre les écrans (utilisation d'Animatoo).
 
-Cette application affiche la liste de chats présente sur l'API créée par mes soins (chats existants et fictifs : https://clementguillemaut.github.io/cat.json )
+Cette application affiche la liste de chats présente sur l'API créée par mes soins 
+(chats existants et fictifs : https://clementguillemaut.github.io/cat.json )
 
 
 ## Prérequis
