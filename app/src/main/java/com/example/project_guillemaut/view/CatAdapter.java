@@ -42,7 +42,7 @@ public class CatAdapter extends RecyclerView.Adapter<CatAdapter.MyViewHolder> {
 
         }
         public void setItem(Cat item) {
-            this.cat_age.setText(item.getCatAge());
+            this.cat_age.setText("Age : "+item.getCatAge());
             this.cat_name.setText(item.getCatName());
 
             Picasso.with(context).load(item.getCatPic()).into(this.cat_face);
