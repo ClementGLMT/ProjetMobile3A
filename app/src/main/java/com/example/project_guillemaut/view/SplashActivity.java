@@ -23,7 +23,7 @@ public class SplashActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
-        textview = (TextView)findViewById(R.id.textView);
+        textview = (TextView) findViewById(R.id.textView);
         Animation anim = AnimationUtils.loadAnimation(this, R.anim.splashtransition);
         textview.startAnimation(anim);
         controller = new Controller();
