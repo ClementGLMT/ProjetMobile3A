@@ -21,7 +21,10 @@ Cette application affiche la liste de chats présente sur l'API créée par mes 
 
 - Architecture MVC
 - Appels REST
-- Ecrans : 2 activities
+- 3 Activities : 
+    - Splashscreen
+    - Affichage de la liste
+    - Détail de l'item clické
 - Affichage d'une liste dans un RecyclerView (1 ImageView et 2 TextView)
 - Affichage du détail d'un item de la liste (1 ImageView et 7 TextView)
 - Gitflow 
@@ -64,6 +67,11 @@ Voici le format d'une réponse de la catAPI (seulement 2 chats à titre d'exempl
 
 
 ## Fonctionnalités: 
+
+### Splashscreen : 
+
+
+<img src="https://image.noelshack.com/fichiers/2019/13/5/1553858289-55750447-417128005730053-562408547023847424-n.jpg" alt="act1" width="300" height="633">
 
 
 ### 1ère activity : 
