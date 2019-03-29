@@ -9,7 +9,6 @@ import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 
 import com.blogspot.atifsoftwares.animatoolib.Animatoo;
-import com.example.project_guillemaut.CatAdapter;
 import com.example.project_guillemaut.controller.ClickListener;
 import com.example.project_guillemaut.R;
 import com.example.project_guillemaut.controller.Controller;

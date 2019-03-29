@@ -1,4 +1,4 @@
-package com.example.project_guillemaut;
+package com.example.project_guillemaut.view;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.project_guillemaut.R;
 import com.example.project_guillemaut.controller.ClickListener;
 import com.example.project_guillemaut.model.Cat;
 import com.squareup.picasso.Picasso;

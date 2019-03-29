@@ -6,7 +6,6 @@ import android.util.Log;
 
 import java.util.ArrayList;
 
-import com.example.project_guillemaut.CatAPI;
 import com.example.project_guillemaut.model.ApiCatResponse;
 import com.example.project_guillemaut.model.Cat;
 import com.example.project_guillemaut.view.MainActivity;
