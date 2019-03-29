@@ -22,7 +22,6 @@ public class MainActivity extends AppCompatActivity implements ClickListener{
     private RecyclerView.Adapter mAdapter;
     private RecyclerView.LayoutManager mLayoutManager;
     private ArrayList<Cat> myDataset;
-    private Controller controller;
 
 
 
@@ -36,10 +35,9 @@ public class MainActivity extends AppCompatActivity implements ClickListener{
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        myDataset = new ArrayList<>();
-        controller = new Controller();
+        myDataset = (ArrayList<Cat>) getIntent().getSerializableExtra("Dataset");
         showCache();
-        controller.start(this, mAdapter);
+        showList(myDataset);
     }
 
     public void showList(ArrayList<Cat> dataset) {
@@ -86,6 +84,11 @@ public class MainActivity extends AppCompatActivity implements ClickListener{
         intent.putExtra("Cat", item);
         startActivity(intent);
         Animatoo.animateInAndOut(this);
+    }
+
+    @Override
+    public void onBackPressed() {
+
     }
 }
 

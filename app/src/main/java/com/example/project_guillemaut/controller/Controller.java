@@ -1,11 +1,13 @@
 package com.example.project_guillemaut.controller;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
-import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 
-import java.util.ArrayList;
+import java.io.Serializable;
 
+import com.blogspot.atifsoftwares.animatoolib.Animatoo;
+import com.example.project_guillemaut.view.SplashActivity;
 import com.example.project_guillemaut.model.ApiCatResponse;
 import com.example.project_guillemaut.model.Cat;
 import com.example.project_guillemaut.view.MainActivity;
@@ -23,12 +25,11 @@ import static android.content.Context.MODE_PRIVATE;
 public class Controller  {
 
     private static final String BASE_URL = "https://clementguillemaut.github.io/";
-    private MainActivity mActivity;
-    private static RecyclerView.Adapter myAdapter;
+    private SplashActivity mActivity;
+    private ApiCatResponse catList;
 
-    public void start(MainActivity myActivity, RecyclerView.Adapter mAdapter) {
+    public void start(SplashActivity myActivity) {
         mActivity = myActivity;
-        myAdapter = mAdapter;
         Gson gson = new GsonBuilder()
                 .setLenient()
                 .create();
@@ -50,11 +51,13 @@ public class Controller  {
 
                 if(response.isSuccessful()) {
                     Log.i("Response", "Response status : "+response.message());
-                    ApiCatResponse changesList = response.body();
-                    mActivity.setMyDataset((ArrayList<Cat>) changesList.getResults());
+                    catList = response.body();
                     storeDatasetInCache();
+                    Intent intent = new Intent(mActivity, MainActivity.class);
+                    intent.putExtra("Dataset", (Serializable) catList.getResults());
+                    mActivity.startActivity(intent);
+                    Animatoo.animateInAndOut(mActivity);
                     Log.i("onResponse", "Response is successful and dataset loaded");
-                    mActivity.showList((ArrayList<Cat>) changesList.getResults());
                 } else {
                     Log.i("onResponse", "Response is not successful :"+response.errorBody());
                     Log.i("Response", "Response status : "+response.message());
@@ -69,7 +72,7 @@ public class Controller  {
                 SharedPreferences.Editor editor = cache.edit();
                 int i=1;
 
-                for (Cat cat : mActivity.getMyDataset()){
+                for (Cat cat : catList.getResults()){
 
                     editor.putString("Cat_"+i+"_name=", cat.getCatName());
                     editor.putString("Cat_"+i+"_age=", cat.getCatAge());
