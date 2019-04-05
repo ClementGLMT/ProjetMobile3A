@@ -24,7 +24,7 @@ Cette application affiche la liste de chats présente sur l'API créée par mes 
 - Affichage d'une liste dans un RecyclerView (1 ImageView et 2 TextView)
 - Affichage du détail d'un item de la liste (1 ImageView et 7 TextView)
 - 3 Activities : 
-    - Splashscreen
+    - Splashscreen (passage à l'activity de la liste lorsque les données sont chargées)
     - Affichage de la liste
     - Détail de l'item clické
 - Gitflow 
